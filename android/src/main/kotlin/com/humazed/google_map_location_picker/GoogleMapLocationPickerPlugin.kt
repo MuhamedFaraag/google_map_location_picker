@@ -14,13 +14,13 @@ import java.security.MessageDigest
 
 
 class GoogleMapLocationPickerPlugin(act: Activity) : MethodCallHandler {
-    var activity: Activity? = act
+    var activity: Activity = act
 
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar) {
             val channel = MethodChannel(registrar.messenger(), "google_map_location_picker")
-            channel.setMethodCallHandler(GoogleMapLocationPickerPlugin(registrar.activity()))
+            channel.setMethodCallHandler(GoogleMapLocationPickerPlugin(registrar.activity()!!))
         }
     }
 
